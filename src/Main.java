@@ -8,7 +8,7 @@ public class Main {
         //For example, for the word “computer” it should be like:
         // _ _ _ _ _ _ _
         String[] list = {"potato", "estate", "energy", "length", "java", "system", "effort", "wealth", "nation",
-                "police", "family", "sister", "church", "worker", "studio", "dinner", "player", "computer", "singer",
+                "police", "family", "sister", "church", "worker", "studio", "dinner", "player", "singer",
                 "farmer"};
         System.out.print("     _________\n" +
                 "     |/      |\n" +

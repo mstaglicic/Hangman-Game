@@ -70,34 +70,3 @@ public class Main {
         }
     }
 }
-       /* int guessCount = 0;
-        int guessLimit = 6; // head,body,left arm,right arm,left leg and right leg
-        boolean outOfGuesses = false;
-        System.out.println(" Word" + guess);
-    }
-}
-            /*word = input.nextLine();
-            while(!guess.equals(word) && !outOfGuesses){
-                if(guessCount < guessLimit){
-                    System.out.print(" Enter a char: \n");
-                    guess = input.nextLine();
-                    guessCount++;
-                } else {
-                    outOfGuesses = true;
-                }
-            }
-
-            if(outOfGuesses){
-                System.out.println("You Lose! \n"
-                        + "_____________\n"
-                        +" Hidden word was : \n" + word
-                        + "\n End of game!");
-            } else {
-                System.out.println("You Win! \n"
-                        + "______________\n"
-                        + "End of game ! ");
-            }
-        }
-    }
-
-             */

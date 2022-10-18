@@ -7,7 +7,9 @@ public class Main {
         //underscores that represent the letters of the word.
         //For example, for the word “computer” it should be like:
         // _ _ _ _ _ _ _
-        String[] list = {"potato"};
+        String[] list = {"potato", "potato", "estate", "energy", "length", "java", "system", "effort", 
+                         "wealth", "nation", "police", "family", "sister", "church", "worker", "studio", 
+                         "dinner", "player", "singer", "farmer"};
         System.out.print("     _________\n" +
                 "     |/      |\n" +
                 "     |      \n" +

@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -38,7 +36,7 @@ public class Main {
         ArrayList<Character> charList = new ArrayList<>();
 
         int guessCount = 0;
-        int guessLimit = 6;
+        int guessLimit = 5;
         System.out.println("\tEnter a letter only : ");
         Scanner scanner = new Scanner(System.in);
         //char usersGuess = scanner.next().charAt(0);

@@ -9,9 +9,7 @@ public class Game {
         //For example, for the word “computer” it should be like:
         // _ _ _ _ _ _ _
         introGame();
-
     }
-
     public static void introGame() {
         System.out.print("     _________\n" +
                 "     |/      |\n" +
@@ -28,20 +26,17 @@ public class Game {
     }
     static void randomWordGen() {
         Random Random = new Random();
-        String[] cars = {"audi", "fiat", "citroen", "opel","toyota","ford","volkswagen","renault","bentley","lancia",
-                "hyundai","jaguar","lexus","lamborghini"};
+        String[] cars = {"audi", "fiat", "citroen", "opel"};
         String randomWordCar = cars[Random.nextInt(cars.length)];
-        String[] country = {"croatia", "slovenia","austria","switzerland","luxembourg","finland", "poland", "slovakia",
-                "czechia","hungary", "france", "germany"};
+        String[] country = {"croatia", "slovenia", "poland", "slovakia", "hungary", "france", "germany"};
         String randomWordCountry = country[Random.nextInt(country.length)];
-        String[] citiesEU = {"paris", "zagreb", "berlin", "madrid","warsaw", "ljubljana", "rome", "venezia","vienna","hamburg",
-                "barcelona","munich","prague","sofia"};
+        String[] citiesEU = {"paris", "zagreb", "berlin", "warsaw", "ljubljana", "rome", "venezia"};
         String randomWordCitiesEU = citiesEU[Random.nextInt(citiesEU.length)];
         Scanner scanner = new Scanner(System.in);
         System.out.println("------  Starting a game ------ ");
         System.out.println();
         String randomWord = null;
-        System.out.println(" Choose the category : \n" +
+        System.out.println(" Choose the option : \n" +
                 " 1. Cars \n" +
                 " 2. Countries in EU \n" +
                 " 3. Cities in EU \n");
@@ -57,7 +52,9 @@ public class Game {
         }
         System.out.println("\t The given word is : ");
         System.out.println();
-        // System.out.println(randomWord); line used for debugging and testing this phase of code
+
+        // Test line to test the code if the output word is OK
+        //System.out.println(randomWord);
 
         String underscores = randomWord.replaceAll("[a-zA-Z]", "_");
         System.out.print("\t\t\t");
@@ -65,21 +62,15 @@ public class Game {
             System.out.print(underscores.charAt(i) + " ");
         }
         System.out.println();
-
-        // StringBuilder which create underscore symbols on hiddenWord
         StringBuilder hiddenWord = new StringBuilder(underscores);
 
-        // charList stores all values from user input
         ArrayList<Character> charList = new ArrayList<>();
 
         int guessCount = 0;
         int guessLimit = hiddenWord.length() - 1;
         System.out.println();
         scanner = new Scanner(System.in);
-
         while (!hiddenWord.toString().equals(randomWord)) {
-
-            // sorting charList in alphabetical order
             Collections.sort(charList);
             System.out.println("Characters already entered: " + charList);
             System.out.println();
@@ -92,26 +83,29 @@ public class Game {
             // new letter from user and if user still have remaining attempts then our code is running
             if (!charList.contains(a) && guessCount != guessLimit) {
                 charList.add(a);
+                boolean isGuessed = false;
                 for (int i = 0; i < randomWord.length(); i++) {
                     if (randomWord.charAt(i) == a) {
                         hiddenWord.setCharAt(i, a);
-
+                        isGuessed = true;
                     }
                 }
 
-                // Print where user can see how many attempts to guess the word
+                // just a print where user can see how many attempts he have
                 System.out.println("You have left  " + (guessLimit - guessCount) + " attempts.");
 
                 for (int i = 0; i < hiddenWord.length(); i++) {
                     System.out.print(hiddenWord.charAt(i) + " ");
                 }
                 System.out.println();
-                guessCount++;
+                if(!isGuessed)
+                    guessCount++;
                 System.out.println(hangmanDraw.draw(guessCount));
-                System.out.println("Guess count value " + guessCount + " ");
+                // just to test if logic for draw work
+                //System.out.println("Guess count value " + guessCount + " ");
                 System.out.println();
 
-                // WIN condition - when hiddenWord is equal to randomWord
+                // Win situation
                 if (hiddenWord.toString().equals(randomWord)) {
                     System.out.println("You win with " + guessCount + " miss");
                     System.out.println(" Want to play again? ( 0 / 1 ) ");
@@ -123,10 +117,12 @@ public class Game {
                     System.exit(0);
 
                 }
-                // we need to check if user already tried to input the letter and inform him
+                // if user try to input the same letter as before it gives him
+                // an error and does not count it in attempts
             } else if (charList.contains(a)) {
                 System.out.println(" You already entered this letter. Enter a new letter again:");
-                // user has attempts limit and when he is left at 0 attempts , automatically the game is finished
+
+                // LOSE situation - user has limited attempts and when he is left at 0 attempts , automatically the game is finished
             } else if (guessCount == guessLimit) {
                 System.out.println(" Sorry, you LOST.");
                 System.out.println(" The word is " + randomWord);

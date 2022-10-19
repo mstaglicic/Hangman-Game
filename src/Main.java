@@ -7,7 +7,7 @@ public class Main {
         //underscores that represent the letters of the word.
         //For example, for the word “computer” it should be like:
         // _ _ _ _ _ _ _
-        String[] list = {"potato", "potato", "estate", "energy", "length", "java", "system", "effort", 
+        String[] list = {"potato", "estate", "energy", "length", "java", "system", "effort", 
                          "wealth", "nation", "police", "family", "sister", "church", "worker", "studio", 
                          "dinner", "player", "singer", "farmer"};
         System.out.print("     _________\n" +
@@ -28,7 +28,7 @@ public class Main {
 
         Random Random = new Random();
         String randomWord = list[Random.nextInt(list.length)];
-        // System.out.println("word " + randomWord);
+        // System.out.println("word " + randomWord); this line for testing the previous code if it is working
         String underscores = randomWord.replaceAll("[a-zA-Z]", "_");
         System.out.println("\t\t\t" + underscores);
         System.out.println();

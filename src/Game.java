@@ -26,17 +26,17 @@ public class Game {
     }
     static void randomWordGen() {
         Random Random = new Random();
-        String[] cars = {"audi", "fiat", "citroen", "opel"};
+        String[] cars = {"audi", "fiat", "citroen", "opel","jaguar","lamborghini","ford","lexus","honda"};
         String randomWordCar = cars[Random.nextInt(cars.length)];
-        String[] country = {"croatia", "slovenia", "poland", "slovakia", "hungary", "france", "germany"};
+        String[] country = {"croatia", "czechia", "slovenia", "poland", "slovakia", "hungary", "france", "germany"};
         String randomWordCountry = country[Random.nextInt(country.length)];
-        String[] citiesEU = {"paris", "zagreb", "berlin", "warsaw", "ljubljana", "rome", "venezia"};
+        String[] citiesEU = {"paris", "zagreb", "berlin","prague", "warsaw", "ljubljana", "rome", "venezia"};
         String randomWordCitiesEU = citiesEU[Random.nextInt(citiesEU.length)];
         Scanner scanner = new Scanner(System.in);
         System.out.println("------  Starting a game ------ ");
         System.out.println();
         String randomWord = null;
-        System.out.println(" Choose the option : \n" +
+        System.out.println(" Choose the category : \n" +
                 " 1. Cars \n" +
                 " 2. Countries in EU \n" +
                 " 3. Cities in EU \n");
